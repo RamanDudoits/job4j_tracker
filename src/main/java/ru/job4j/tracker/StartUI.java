@@ -18,8 +18,13 @@ public class StartUI {
                 tracker.add(item);
             } else if(select == 1) {
                 System.out.println(" Show all items");
-                for (int i = 0; i < tracker.findAll().length; i++) {
-                    System.out.println(tracker.findById(i));
+                Item[] items = tracker.findAll();
+                if(tracker.findAll().length > 0) {
+                    for (int i = 0; i < tracker.findAll().length; i++) {
+                        System.out.println(items[i]);
+                    }
+                } else {
+                    System.out.println("Items not found");
                 }
             } else if(select == 2) {
                 System.out.println("=== Replace item ====");
@@ -46,12 +51,23 @@ public class StartUI {
                 System.out.println("=== Find item by id ====");
                 System.out.print("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                System.out.println(" This item: " + tracker.findById(id));
+                Item item = tracker.findById(id);
+                if(item != null) {
+                    System.out.println(" This item: " + item);
+                } else {
+                    System.out.println("Items not protected");
+                }
             }  else if(select == 5) {
                 System.out.println("=== Find item by name ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                System.out.println("This item: " + tracker.findByName(name));
+                Item[] item = tracker.findByName(name);
+                if (item != null) {
+                        System.out.println("This item: " + item);
+                    }
+                 else {
+                    System.out.println("Items not protected");
+                }
             } else if (select == 6) {
                 run = false;
             }
