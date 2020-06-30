@@ -13,8 +13,8 @@ public class StartUI {
     public static void showAllItems(Tracker tracker) {
         System.out.println(" Show all items");
         Item[] items = tracker.findAll();
-        if(tracker.findAll().length > 0) {
-            for (int i = 0; i < tracker.findAll().length; i++) {
+        if(items.length > 0) {
+            for (int i = 0; i < items.length; i++) {
                 System.out.println(items[i]);
             }
         } else {
@@ -57,14 +57,14 @@ public class StartUI {
 
     public static void findItemByName(Input input, Tracker tracker) {
         System.out.println("=== Find item by name ====");
-        System.out.print("Enter name: ");
         String name = input.askStr("Enter name: ");
         Item[] item = tracker.findByName(name);
-        if (item != null) {
-            System.out.println("This item: " + item);
-        }
-        else {
-            System.out.println("Items not protected");
+        for (int i = 0; i < item.length; i++) {
+            if (item[i] != null) {
+                System.out.println("This item: " + item[i]);
+            } else {
+                System.out.println("Items not protected");
+            }
         }
     }
 
