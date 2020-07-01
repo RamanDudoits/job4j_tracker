@@ -60,13 +60,10 @@ public class StartUI {
         String name = input.askStr("Enter name: ");
         Item[] item = tracker.findByName(name);
         for (int i = 0; i < item.length; i++) {
-            if (item[i] != null) {
                 System.out.println("This item: " + item[i]);
-            } else {
-                System.out.println("Items not protected");
             }
         }
-    }
+
 
     public void init(Input input, Tracker tracker) {
         boolean run = true;
