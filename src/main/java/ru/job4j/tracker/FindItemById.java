@@ -17,7 +17,7 @@ public class FindItemById implements UserAction {
         int id = input.askInt("Enter id: ");
         Item item = tracker.findById(id);
         if(item != null) {
-            out.println(" This item: " + item);
+            out.println("This item: " + item);
         } else {
             out.println("Items not protected");
         }
